@@ -33,7 +33,7 @@ int main() {
 		cout << "\t4. Eliminar Ejercitos" << endl;
 		cout << "\t5. Simulacion de Batalla" << endl;
 		cout << "\t6. Salir" << endl;
-		cout << "\tEscoja una opcion:";
+		cout << "\tEscoja una opcion: ";
 		cin >> opcion_principal;
 		
 		if(opcion_principal == 1) {
@@ -68,7 +68,7 @@ int main() {
 				// S.setCantidadIntegrantes(cantidadIntegrantes);
 				
 				S = new Starks(jefeFamilia, cantidadLobosHuargos, animalEmblema, lema, MVP, cantidadIntegrantes);
-				cout << "Familia Stark agregada correctamente" << endl;
+				cout << endl << "Familia Stark agregada correctamente" << endl << endl;
 			} else if(opcion1 == 2) {
 				// Lannister
 				string jefeFamilia, animalEmblema, lema;
@@ -96,7 +96,7 @@ int main() {
 				// L.setFuerzaMontana(fuerzaMontana);
 				
 				L = new Lannister(jefeFamilia, animalEmblema, lema, cantidadDinero, fuerzaMontana, cantidadIntegrantes);
-				cout << "Familia Lannister agregada correctamente" << endl;
+				cout << endl << "Familia Lannister agregada correctamente" << endl << endl;
 			} else if(opcion1 == 3) {
 				// Targaryen
 				string reina, animalEmblema, lema;
@@ -123,9 +123,79 @@ int main() {
 				// T.setCantidadBarcos(cantidadBarcos);
 				
 				T = new Targaryen(reina, animalEmblema, lema, cantidadDragones, cantidadBarcos);
-				cout << "Familia Targaryen agregada correctamente" << endl;
+				cout << endl << "Familia Targaryen agregada correctamente" << endl << endl;
 			}
 		} else if(opcion_principal == 2) {
+			cout << "***ESCOJA 4 PARA SALIR***" << endl;
+			int opcion2 = 0;
+			while (opcion2 != 4) {
+				opcion2 = menuFamiliasNobles();
+				if(opcion2 == 1) {
+					if(S != NULL) {
+						// PFN pfn();
+						
+						string nombre, simboloEscudo, lema;
+						int cantidadPersonas, ataque, defensa;
+						
+						cout << "Ingrese el nombre: ";
+						cin >> nombre;
+						// pfn.setNombre(nombre);
+						
+						cout << "Ingrese el simbolo del escudo: ";
+						cin >> simboloEscudo;
+						// pfn.setSimboloEscudo(simboloEscudo);
+						
+						cout << "Ingrese el lema: ";
+						cin >> lema;
+						// pfn.setLema(lema);
+						
+						cout << "Ingrese la cantidad de personas: ";
+						cin >> cantidadPersonas;
+						// pfn.setCantidadPersonas(cantidadPersonas);
+						
+						cout << "Ingrese el ataque: ";
+						cin >> ataque;
+						// pfn.setAtaque(ataque);
+						
+						cout << "Ingrese la defensa: ";
+						cin >> defensa;
+						// pfn.setDefensa(defensa);
+						
+						PFN* pfn = new PFN(nombre, simboloEscudo, lema, cantidadPersonas, ataque, defensa);
+						S -> setPFN(pfn);
+						cout << "Pequena Familia Noble agregada correctamente" << endl;
+					} else
+						cout << "Primero debe agregar a la familia Stark" << endl;
+				} else if(opcion2 == 2) {
+					if(L != NULL) {
+						string nombre, tipoSoldado;
+						int edad, ataque, defensa;
+						
+						cout << "Ingrese el nombre: ";
+						cin >> nombre;
+						
+						cout << "Ingrese la edad: ";
+						cin >> edad;
+						
+						cout << "Ingres el ataque: ";
+						cin >> ataque;
+						
+						cout << "Ingrese la defensa: ";
+						cin >> defensa;
+						
+						GuardiaReal* gr = new GuardiaReal(nombre, edad, ataque, defensa);
+						L -> setGR(gr);
+						cout << "Guardia Real agregado correctamente" << endl;
+					} else
+						cout << "Primero debe agregar a la familia Lannister" << endl;
+				} else if(opcion2 == 3) {
+					if(T != NULL) {
+					} else
+						cout << "Primero debe agregar a la familia Targaryen" << endl;
+				} else if(opcion2 == 4)
+					break;
+				
+			}
 		} else if(opcion_principal == 3) {
 		} else if(opcion_principal == 4) {
 		} else if(opcion_principal == 5) {
@@ -133,6 +203,7 @@ int main() {
 			break;
 	}
 	
+	cout << endl;
 	delete S;
 	delete L;
 	delete T;
@@ -141,11 +212,12 @@ int main() {
 }
 
 int menuFamiliasNobles() {
+	cout << endl;
 	int opcion;
 	cout << "\t\t1. Starks\n";
 	cout << "\t\t2. Lannister\n";
 	cout << "\t\t3. Targaryen\n";
-	cout << "\t\tEscoja una Familia Noble:";
+	cout << "\t\tEscoja una Familia Noble: ";
 	cin >> opcion;
 	return opcion;
 }
