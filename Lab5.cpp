@@ -190,6 +190,7 @@ int main() {
 						cout << "Primero debe agregar a la familia Lannister" << endl;
 				} else if(opcion2 == 3) {
 					if(T != NULL) {
+						// Dothraki
 					} else
 						cout << "Primero debe agregar a la familia Targaryen" << endl;
 				} else if(opcion2 == 4)
@@ -197,8 +198,11 @@ int main() {
 				
 			}
 		} else if(opcion_principal == 3) {
+			// Listar
 		} else if(opcion_principal == 4) {
+			// Eliminar
 		} else if(opcion_principal == 5) {
+			// Simulacion
 		} else if(opcion_principal == 6)
 			break;
 	}
